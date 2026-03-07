@@ -14,7 +14,7 @@ export default function AdminHeader() {
         <ExternalLink className="h-3.5 w-3.5" />
         Website ansehen
       </Link>
-      <UserButton afterSignOutUrl="/admin/sign-in" />
+      <UserButton />
     </header>
   )
 }
