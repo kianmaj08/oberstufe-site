@@ -5,9 +5,12 @@ export default function Footer() {
         <span className="text-[11px] uppercase tracking-[0.2em] text-foreground/30">
           Oberstufe
         </span>
-        <span className="text-[11px] tracking-wide text-foreground/25">
-          &copy; {new Date().getFullYear()}
-        </span>
+        <div className="flex items-center gap-3">
+          <div className="h-1 w-1 rounded-full bg-brand/40" />
+          <span className="text-[11px] tracking-wide text-foreground/25">
+            &copy; {new Date().getFullYear()}
+          </span>
+        </div>
       </div>
     </footer>
   )

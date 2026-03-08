@@ -18,7 +18,7 @@ export default function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         <Link
           href="/"
-          className="text-[11px] font-medium uppercase tracking-[0.2em] text-foreground/80 hover:text-foreground transition-colors duration-300"
+          className="text-[11px] font-medium uppercase tracking-[0.2em] text-foreground/80 hover:text-brand transition-colors duration-300"
         >
           Oberstufe
         </Link>
@@ -28,7 +28,7 @@ export default function Header() {
             <Link
               key={href}
               href={href}
-              className="text-[11px] uppercase tracking-[0.15em] text-foreground/40 hover:text-foreground transition-colors duration-300"
+              className="text-[11px] uppercase tracking-[0.15em] text-foreground/40 hover:text-brand transition-colors duration-300"
             >
               {label}
             </Link>
@@ -58,7 +58,7 @@ export default function Header() {
               key={href}
               href={href}
               onClick={() => setMobileOpen(false)}
-              className="heading-display text-4xl text-foreground hover:opacity-50 transition-opacity duration-300"
+              className="heading-display text-4xl text-foreground hover:text-brand transition-colors duration-300"
             >
               {label}
             </Link>

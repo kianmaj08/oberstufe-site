@@ -27,7 +27,7 @@ export default function SearchBar() {
       defaultValue={searchParams.get("search") ?? ""}
       onChange={handleSearch}
       aria-label="Projekte suchen"
-      className={`w-full max-w-xs border-b border-foreground/15 bg-transparent pb-2 font-body text-sm font-light placeholder:text-foreground/25 focus:outline-none focus:border-foreground/50 transition-colors duration-300 ${isPending ? "opacity-40" : ""}`}
+      className={`w-full max-w-xs border-b border-foreground/15 bg-transparent pb-2 font-body text-sm font-light placeholder:text-foreground/25 focus:outline-none focus:border-brand/50 transition-colors duration-300 ${isPending ? "opacity-40" : ""}`}
     />
   )
 }
