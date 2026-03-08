@@ -1,6 +1,8 @@
+import { Suspense } from "react"
 import { createClient } from "@/lib/supabase/server"
 import FeaturedProject from "@/components/public/FeaturedProject"
 import ProjectGrid from "@/components/public/ProjectGrid"
+import SearchBar from "@/components/public/SearchBar"
 import AboutSection from "@/components/public/AboutSection"
 import FaqSection from "@/components/public/FaqSection"
 import PlannedImprovements from "@/components/public/PlannedImprovements"
@@ -45,12 +47,31 @@ export default async function HomePage({ searchParams }: PageProps) {
   )
 
   return (
-    <div>
+    <>
       {featured && <FeaturedProject project={featured as Project} />}
-      <ProjectGrid projects={(projects as Project[]) ?? []} />
+
+      {/* Projects Section */}
+      <section id="projekte" className="mx-auto max-w-7xl px-6 py-32 lg:py-40">
+        <div className="animate-fade-in-up">
+          <h2 className="heading-display text-[clamp(2.5rem,8vw,6rem)]">
+            Projekte
+          </h2>
+        </div>
+
+        <div className="mt-12 animate-fade-in-up delay-1">
+          <Suspense>
+            <SearchBar />
+          </Suspense>
+        </div>
+
+        <div className="mt-20">
+          <ProjectGrid projects={(projects as Project[]) ?? []} />
+        </div>
+      </section>
+
       <AboutSection text={contentMap["about_text"] ?? ""} />
       <FaqSection items={(faqItems as FaqItem[]) ?? []} />
       <PlannedImprovements items={(improvements as PlannedImprovement[]) ?? []} />
-    </div>
+    </>
   )
 }

@@ -1,38 +1,41 @@
 import type { PlannedImprovement } from "@/lib/types"
 
-const statusConfig = {
-  planned: { label: "Geplant", color: "bg-border" },
-  in_progress: { label: "In Arbeit", color: "bg-[#8FABD4]" },
-  completed: { label: "Fertig", color: "bg-green-500" },
+const statusLabels = {
+  planned: "Geplant",
+  in_progress: "In Arbeit",
+  completed: "Fertig",
 }
 
 export default function PlannedImprovements({ items }: { items: PlannedImprovement[] }) {
   if (!items.length) return null
   return (
-    <section className="border-t border-border">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <p className="mb-8 text-xs font-medium uppercase tracking-widest text-muted-foreground">
-          Geplante Verbesserungen
-        </p>
-        <div className="max-w-2xl divide-y divide-border">
-          {items.map((item) => {
-            const { label, color } = statusConfig[item.status]
-            return (
-              <div key={item.id} className="flex items-start gap-4 py-4">
-                <div className="mt-1.5 flex items-center gap-1.5 shrink-0 w-24">
-                  <span className={`h-1.5 w-1.5 rounded-full ${color}`} />
-                  <span className="text-xs text-muted-foreground">{label}</span>
-                </div>
-                <div>
-                  <p className="text-sm font-medium">{item.title}</p>
-                  {item.description && (
-                    <p className="mt-0.5 text-sm text-muted-foreground">{item.description}</p>
-                  )}
-                </div>
-              </div>
-            )
-          })}
-        </div>
+    <section className="mx-auto max-w-7xl px-6 py-32 lg:py-40">
+      <h2 className="heading-display text-[clamp(1.5rem,5vw,3.5rem)]">
+        Geplante<br />Verbesserungen
+      </h2>
+
+      <div className="mt-16 max-w-3xl space-y-0">
+        {items.map((item, i) => (
+          <div
+            key={item.id}
+            className="group flex items-baseline gap-6 py-5"
+            style={{ borderBottom: i < items.length - 1 ? '1px solid var(--border)' : 'none' }}
+          >
+            <span className="text-[11px] uppercase tracking-[0.15em] text-foreground/30 shrink-0 w-20">
+              {statusLabels[item.status]}
+            </span>
+            <div>
+              <p className="font-body text-base font-normal text-foreground/80 group-hover:text-foreground transition-colors duration-300">
+                {item.title}
+              </p>
+              {item.description && (
+                <p className="mt-1 font-body text-sm font-light text-foreground/40">
+                  {item.description}
+                </p>
+              )}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )

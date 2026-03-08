@@ -1,14 +1,18 @@
 export default function AboutSection({ text }: { text: string }) {
   if (!text) return null
   return (
-    <section id="ueber" className="border-t border-border">
-      <div className="mx-auto max-w-6xl px-4 py-16">
-        <p className="mb-4 text-xs font-medium uppercase tracking-widest text-muted-foreground">
-          Über dieses Projekt
-        </p>
-        <p className="max-w-2xl text-base leading-relaxed whitespace-pre-wrap">
-          {text}
-        </p>
+    <section id="ueber" className="mx-auto max-w-7xl px-6 py-32 lg:py-40">
+      <div className="grid gap-16 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <h2 className="heading-display text-[clamp(2rem,6vw,4.5rem)]">
+            Über
+          </h2>
+        </div>
+        <div className="lg:col-span-7 lg:col-start-6">
+          <p className="font-body text-lg font-light leading-[1.8] text-foreground/70 whitespace-pre-wrap">
+            {text}
+          </p>
+        </div>
       </div>
     </section>
   )

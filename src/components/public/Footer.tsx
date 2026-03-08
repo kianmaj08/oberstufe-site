@@ -1,9 +1,13 @@
-export default function Footer({ text = "© 2025 oberstufe.site" }: { text?: string }) {
+export default function Footer() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-6">
-        <span className="text-sm font-medium">oberstufe.site</span>
-        <p className="text-xs text-muted-foreground">{text}</p>
+    <footer className="mx-auto max-w-7xl px-6 py-12">
+      <div className="flex items-center justify-between">
+        <span className="text-[11px] uppercase tracking-[0.2em] text-foreground/30">
+          Oberstufe
+        </span>
+        <span className="text-[11px] tracking-wide text-foreground/25">
+          &copy; {new Date().getFullYear()}
+        </span>
       </div>
     </footer>
   )
